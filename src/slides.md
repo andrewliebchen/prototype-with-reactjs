@@ -2,18 +2,148 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
+class: title
 # Design prototypes with ReactJS
 ---
+class: title
 # Why Prototype?
 ---
+## Your mockup never looks like the browser
+---
+## Easier to find states, paths, and “corners” you might have missed
+---
+## Instead of describing how to build things in “keyframes,” describe them with the actual thing
+---
+## Screen size flexibility
+---
+class: title
 # Why ReactJS?
 ---
+## Prototyping applications in the browser is tough
+---
+### Hard to reuse stuff
+### Hard to make things do things
+### Hard to work with data
+---
+## React has just enough out of the box to build a real fake web app
+---
+## React’s virtual DOM abstracts away the actual DOM so you can focus on components
+---
+## Component composability is just like HTML classes in CSS, but for markup
+---
+## It’s just Javascript!
+---
+class: title
 # Learn these four things...
 ---
+
 ## Components
 ---
+### Components are like widgets or modules: the are the building blocks of a UI
+---
+### React encourages you to think of your UI as being composed of the smallest possible components you can define
+---
+### Use JSX to create components in an HTML-like syntax, make them reusable, and combine them into larger UIs
+---
+```js
+var HelloWorld = React.createClass({
+  render() {
+    return (
+      <div className="hello-world">
+        <p>Hello world!</p>
+      </div>
+    );
+  }
+});
+
+React.render(<HelloWorld/>, document.getElementById('yield'));
+```
+---
+```js
+var HelloWorld = React.createClass({
+  render() {
+    return (
+      <div className="hello-world">
+        <p>Hello world!</p>
+      </div>
+    );
+  }
+});
+
+var App = React.createClass({
+  render() {
+    return (
+      <section>
+        <HelloWorld/>
+        <HelloWorld/>
+        <HelloWorld/>
+      </section>
+    );
+  }
+});
+
+React.render(<App/>, document.getElementById('yield'));
+```
+---
+
 ## Props
 ---
+### Props = properties
+---
+### They’re kind of like HTML attributes
+---
+```html
+<div class="foo" data-bar="bat">Wut</div>
+```
+---
+### Props are defined when a component is rendered
+---
+### Use props to pass information down to components, this information can be used to change or define content, behavior, or actions
+---
+```js
+var HelloWorld = React.createClass({
+  render() {
+    return (
+      <div className="hello-world">
+        <p>Hello {this.props.name}!</p>
+      </div>
+    );
+  }
+});
+```
+---
+```js
+var HelloWorld = React.createClass({
+  render() {
+    return (
+      <div className="hello-world">
+        <p>Hello {this.props.name}!</p>
+      </div>
+    );
+  }
+});
+
+var App = React.createClass({
+  render() {
+    return (
+      <section>
+        <HelloWorld name="Andrew"/>
+      </section>
+    );
+  }
+});
+```
+---
+
 ## State
 ---
+### Each component has it’s own `state`
+---
+### `state` is _reactive_...so if you update `state`, the component re-renders
+---
+### You can use `state` to do basic things like open/close dropdowns, or complex things like simulate a database in the browser
+---
+### In real React applications, `state` is dangerous, and best to be avoided. In prototypes, it’s your best friend
+---
+
 ## Events
