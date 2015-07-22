@@ -19,11 +19,11 @@ class: title
 class: title
 # Why ReactJS?
 ---
-## Prototyping applications in the browser is tough
+## Prototyping applications in the browser is tough...
 ---
-### Hard to reuse stuff
-### Hard to make things do things
-### Hard to work with data
+Hard to reuse stuff
+Hard to make things do things
+Hard to work with data
 ---
 ## React has just enough out of the box to build a real fake web app
 ---
@@ -34,16 +34,18 @@ class: title
 ## It’s just Javascript!
 ---
 class: title
-# Learn these four things...
+# So, learn these four things...
+---
+## Components, props, state, and events
 ---
 
-## Components
+## 1. Components
 ---
-### Components are like widgets or modules: the are the building blocks of a UI
+Components are like widgets or modules: the are the building blocks of a UI
 ---
-### React encourages you to think of your UI as being composed of the smallest possible components you can define
+React encourages you to think of your UI as being composed of the smallest possible components you can define
 ---
-### Use JSX to create components in an HTML-like syntax, make them reusable, and combine them into larger UIs
+Use JSX to create components in an HTML-like syntax, make them reusable, and combine them into larger UIs
 ---
 ```js
 var HelloWorld = React.createClass({
@@ -86,19 +88,21 @@ React.render(<App/>, document.getElementById('yield'));
 ```
 ---
 
-## Props
+## 2. Props
 ---
-### Props = properties
+Props = properties
 ---
-### They’re kind of like HTML attributes
+They’re kind of like HTML attributes
 ---
 ```html
 <div class="foo" data-bar="bat">Wut</div>
 ```
 ---
-### Props are defined when a component is rendered
+Props are defined when a component is rendered
 ---
-### Use props to pass information down to components, this information can be used to change or define content, behavior, or actions
+Use props to pass information down to components...
+---
+...this information can be used to change or define content, behavior, or actions
 ---
 ```js
 var HelloWorld = React.createClass({
@@ -135,15 +139,142 @@ var App = React.createClass({
 ```
 ---
 
-## State
+## 3. State
 ---
-### Each component has it’s own `state`
+Each component has it’s own `state`
 ---
-### `state` is _reactive_...so if you update `state`, the component re-renders
+`state` is _reactive_...so if you update `state`, the component re-renders
 ---
-### You can use `state` to do basic things like open/close dropdowns, or complex things like simulate a database in the browser
+You can use `state` to do basic things like open/close dropdowns, or complex things like simulate a database in the browser
 ---
-### In real React applications, `state` is dangerous, and best to be avoided. In prototypes, it’s your best friend
+In real React applications, `state` is dangerous, and best to be avoided. In prototypes, it’s your best friend
+---
+```js
+var HelloWorld = React.createClass({
+  getInitialState() {
+    return: {
+      definition: false
+    };
+  },
+
+  render() {
+    return (
+      <div className="hello-world">
+        <p>Hello {this.props.name}!</p>
+        {this.state.definition ?
+          <p>computer program that outputs "Hello, World!" (or some variant thereof) on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language.</p>
+        : null}
+      </div>
+    );
+  }
+});
+```
+---
+This example isn't particularly interesting without...
 ---
 
-## Events
+## 4. Events
+---
+Events allow you to do things
+---
+Events can be assigned to any element, and there are a ton of event types available out of the box
+---
+__Common case:__ click on a button, update the component’s state
+---
+```js
+var HelloWorld = React.createClass({
+  getInitialState() {
+    return: {
+      definition: false
+    };
+  },
+
+  handleDefinitionToggle() {
+    this.setState({return: !this.state.return});
+  },
+
+  render() {
+    return (
+      <div className="hello-world">
+        <p>Hello {this.props.name}!</p>
+        <button onClick={this.handleDefinitionToggle}/>Define</button>
+        {this.state.definition ?
+          <p>computer program that outputs "Hello, World!" (or some variant thereof) on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language.</p>
+        : null}
+      </div>
+    );
+  }
+});
+```
+---
+Events can be passed “up” to parent components via props
+---
+```js
+var AlohaWorld = React.createClass({
+  render() {
+    return (
+      <div className="aloha-world" onClick={this.props.handleAlohaToggle}>
+        <p>{this.props.aloha} World!</p>
+      </div>
+    );
+  }
+});
+
+var App = React.createClass({
+  getInitialState() {
+    return {
+      aloha: 'Hello'
+    };
+  },
+
+  handleAlohaToggle() {
+    if(this.state.aloha === 'Hello') {
+      this.setState({aloha: 'Goodbye'});
+    } else {
+      this.setState({aloha: 'Hello'})
+    }
+  },
+
+  render() {
+    return (
+      <section>
+        <AlohaWorld aloha={this.state.aloha} alohaToggle={this.handleAlohaToggle}/>
+      </section>
+    );
+  }
+});
+```
+---
+Forget about CSS, let the virtual DOM do the work
+---
+```js
+// Maybe you've done it this way in the past...
+$('.dropdown-menu').addClass('is-hidden');
+
+// Or...
+$('.dropdown-menu').show();
+
+// But in React you can...
+Dropdown = React.createClass({
+  render() {
+    return (
+      <div className="dropdown">
+        <button onClick={this.handleDropdownToggle}>More options</button>
+        {this.state.dropdown ?
+          <div className="dropdown-menu">...</div>
+        : null}
+      </div>
+    );
+  }
+});
+```
+---
+# Resources
+---
+[React's basic tutorial](https://facebook.github.io/react/docs/tutorial.html)
+---
+[React + Webpack Yeoman generator](https://github.com/newtriks/generator-react-webpack)
+---
+[Static site generator with React and Webpack](http://jxnblk.com/writing/posts/static-site-generation-with-react-and-webpack/) by [@jxnblk](https://twitter.com/jxnblk)
+---
+Ask me questions on Twitter: [@andrewliebchen](https://twitter.com/andrewliebchen)

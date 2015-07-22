@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
-  font-size: 20px;
+  font-family: "san francisco text", helvetica, arial, sans-serif;
+  font-size: 36px;
 }
 
 h1, h2, h3, h4, p, pre {
@@ -17,9 +17,8 @@ h1, h2, h3 {
   font-weight: bold;
   margin-bottom: 0;
 }
-h1 { font-size: 4em; }
-h2 { font-size: 2em; }
-h3 { font-size: 1.6em; font-weight: normal; }
+h1 { font-size: 3em;}
+h2 { font-size: 1.5em; }
 .footnote {
   position: absolute;
   bottom: 3em;
@@ -44,6 +43,11 @@ code {
   color: #444;
 }
 pre {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+pre code {
+  font-size: 0.5em;
   padding: 3em !important;
 }
 .pull-left {
