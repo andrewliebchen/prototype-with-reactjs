@@ -48,7 +48,7 @@ React encourages you to think of your UI as being composed of the smallest possi
 Use JSX to create components in an HTML-like syntax, make them reusable, and combine them into larger UIs
 ---
 ```js
-var HelloWorld = React.createClass({
+var Example = React.createClass({
   render() {
     return (
       <div className="hello-world">
@@ -72,7 +72,7 @@ var HelloWorld = React.createClass({
   }
 });
 
-var App = React.createClass({
+var Example = React.createClass({
   render() {
     return (
       <section>
@@ -105,7 +105,7 @@ Use props to pass information down to components...
 ...this information can be used to change or define content, behavior, or actions
 ---
 ```js
-var HelloWorld = React.createClass({
+var Example = React.createClass({
   render() {
     return (
       <div className="hello-world">
@@ -127,7 +127,7 @@ var HelloWorld = React.createClass({
   }
 });
 
-var App = React.createClass({
+var Example = React.createClass({
   render() {
     return (
       <section>
@@ -150,9 +150,9 @@ You can use `state` to do basic things like open/close dropdowns, or complex thi
 In real React applications, `state` is dangerous, and best to be avoided. In prototypes, it’s your best friend
 ---
 ```js
-var HelloWorld = React.createClass({
+var Example = React.createClass({
   getInitialState() {
-    return: {
+    return {
       definition: false
     };
   },
@@ -182,22 +182,22 @@ Events can be assigned to any element, and there are a ton of event types availa
 __Common case:__ click on a button, update the component’s state
 ---
 ```js
-var HelloWorld = React.createClass({
+var Example = React.createClass({
   getInitialState() {
-    return: {
+    return {
       definition: false
     };
   },
 
   handleDefinitionToggle() {
-    this.setState({return: !this.state.return});
+    this.setState({return: !this.state.definition});
   },
 
   render() {
     return (
       <div className="hello-world">
         <p>Hello {this.props.name}!</p>
-        <button onClick={this.handleDefinitionToggle}/>Define</button>
+        <button onClick={this.handleDefinitionToggle}>Define</button>
         {this.state.definition ?
           <p>computer program that outputs "Hello, World!" (or some variant thereof) on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language.</p>
         : null}
@@ -220,7 +220,7 @@ var AlohaWorld = React.createClass({
   }
 });
 
-var App = React.createClass({
+var Example = React.createClass({
   getInitialState() {
     return {
       aloha: 'Hello'
@@ -231,7 +231,7 @@ var App = React.createClass({
     if(this.state.aloha === 'Hello') {
       this.setState({aloha: 'Goodbye'});
     } else {
-      this.setState({aloha: 'Hello'})
+      this.setState({aloha: 'Hello'});
     }
   },
 
@@ -255,7 +255,7 @@ $('.dropdown-menu').addClass('is-hidden');
 $('.dropdown-menu').show();
 
 // But in React you can...
-Dropdown = React.createClass({
+var Example = React.createClass({
   render() {
     return (
       <div className="dropdown">
