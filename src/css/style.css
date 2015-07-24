@@ -35,7 +35,6 @@ code {
   -web-border-radius: 5px;
   background: #e7e8e2;
   border-radius: 5px;
-  font-size: 16px;
   text-align: left;
   background-color: #f7f7f7 !important;
   font-size: 1em;
@@ -47,8 +46,8 @@ pre {
   overflow-y: visible;
 }
 pre code {
-  font-size: 0.5em;
-  padding: 3em !important;
+  font-size: 0.75em;
+  padding: 2em !important;
 }
 .pull-left {
   float: left;

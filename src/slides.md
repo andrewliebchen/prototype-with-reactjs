@@ -10,28 +10,35 @@ class: title
 ---
 ## Your mockup never looks like the browser
 ---
-## Easier to find states, paths, and “corners” you might have missed
+## Easier to find states, paths, and “corners” you might have missed...
 ---
-## Instead of describing how to build things in “keyframes,” describe them with the actual thing
+## ...Becase instead of describing things with “keyframes,” you describe them with the actual thing
 ---
 ## Screen size flexibility
 ---
 class: title
 # Why ReactJS?
 ---
+First, do you know know what [React](https://facebook.github.io/react/) is?
+---
 ## Prototyping applications in the browser is tough...
 ---
-Hard to reuse stuff
-Hard to make things do things
-Hard to work with data
+### 1. Hard to reuse stuff
 ---
-## React has just enough out of the box to build a real fake web app
+### 2. Hard to work with data
 ---
-## React’s virtual DOM abstracts away the actual DOM so you can focus on components
+### 3. Hard to make things do things
 ---
-## Component composability is just like HTML classes in CSS, but for markup
+## React has just enough out of the box to build a real fake web app...
 ---
-## It’s just Javascript!
+### 1. ~~Hard to reuse stuff~~
+Use React components.
+---
+### 3. ~~Hard to work with data~~
+Use React's `props`.
+---
+### 4. ~~Hard to make things do things~~
+Use React's `state` and events.
 ---
 class: title
 # So, learn these four things...
@@ -41,14 +48,14 @@ class: title
 
 ## 1. Components
 ---
-Components are like widgets or modules: the are the building blocks of a UI
+Components are like widgets or modules: the are the building blocks of a UI. They make it easier to use stuff.
 ---
-React encourages you to think of your UI as being composed of the smallest possible components you can define
+React encourages you to think of your UI as being composed of the smallest possible components you can define.
 ---
-Use JSX to create components in an HTML-like syntax, make them reusable, and combine them into larger UIs
+Use JSX to create components in an HTML-like syntax, make them reusable, and combine them into larger UIs.
 ---
 ```js
-var Example = React.createClass({
+var HelloWorld = React.createClass({
   render() {
     return (
       <div className="hello-world">
@@ -57,8 +64,6 @@ var Example = React.createClass({
     );
   }
 });
-
-React.render(<HelloWorld/>, document.getElementById('yield'));
 ```
 ---
 ```js
@@ -72,7 +77,7 @@ var HelloWorld = React.createClass({
   }
 });
 
-var Example = React.createClass({
+var App = React.createClass({
   render() {
     return (
       <section>
@@ -83,8 +88,6 @@ var Example = React.createClass({
     );
   }
 });
-
-React.render(<App/>, document.getElementById('yield'));
 ```
 ---
 
@@ -98,14 +101,14 @@ They’re kind of like HTML attributes
 <div class="foo" data-bar="bat">Wut</div>
 ```
 ---
-Props are defined when a component is rendered
----
 Use props to pass information down to components...
 ---
 ...this information can be used to change or define content, behavior, or actions
 ---
+Props are defined when a component is rendered
+---
 ```js
-var Example = React.createClass({
+var HelloWorld = React.createClass({
   render() {
     return (
       <div className="hello-world">
@@ -127,7 +130,7 @@ var HelloWorld = React.createClass({
   }
 });
 
-var Example = React.createClass({
+var App = React.createClass({
   render() {
     return (
       <section>
@@ -159,12 +162,12 @@ var Example = React.createClass({
 
   render() {
     return (
-      <div className="hello-world">
-        <p>Hello {this.props.name}!</p>
+      <dl className="hello-world">
+        <dt>Hello World!</dt>
         {this.state.definition ?
-          <p>computer program that outputs "Hello, World!" (or some variant thereof) on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language.</p>
+          <dd>A computer program that outputs "Hello, World!" (or some variant thereof) on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language.</dd>
         : null}
-      </div>
+      </dl>
     );
   }
 });
@@ -190,56 +193,18 @@ var Example = React.createClass({
   },
 
   handleDefinitionToggle() {
-    this.setState({return: !this.state.definition});
+    this.setState({definition: !this.state.definition});
   },
 
   render() {
     return (
-      <div className="hello-world">
-        <p>Hello {this.props.name}!</p>
-        <button onClick={this.handleDefinitionToggle}>Define</button>
+      <dl className="hello-world">
+        <dt>Hello World!</dt>
         {this.state.definition ?
-          <p>computer program that outputs "Hello, World!" (or some variant thereof) on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language.</p>
+          <dd>A computer program that outputs "Hello, World!" (or some variant thereof) on a display device. Because it is typically one of the simplest programs possible in most programming languages, it is by tradition often used to illustrate to beginners the most basic syntax of a programming language.</dd>
         : null}
-      </div>
-    );
-  }
-});
-```
----
-Events can be passed “up” to parent components via props
----
-```js
-var AlohaWorld = React.createClass({
-  render() {
-    return (
-      <div className="aloha-world" onClick={this.props.handleAlohaToggle}>
-        <p>{this.props.aloha} World!</p>
-      </div>
-    );
-  }
-});
-
-var Example = React.createClass({
-  getInitialState() {
-    return {
-      aloha: 'Hello'
-    };
-  },
-
-  handleAlohaToggle() {
-    if(this.state.aloha === 'Hello') {
-      this.setState({aloha: 'Goodbye'});
-    } else {
-      this.setState({aloha: 'Hello'});
-    }
-  },
-
-  render() {
-    return (
-      <section>
-        <AlohaWorld aloha={this.state.aloha} alohaToggle={this.handleAlohaToggle}/>
-      </section>
+        <button onClick={this.handleDefinitionToggle}>Toggle definition</button>
+      </dl>
     );
   }
 });
@@ -252,10 +217,10 @@ Forget about CSS, let the virtual DOM do the work
 $('.dropdown-menu').addClass('is-hidden');
 
 // Or...
-$('.dropdown-menu').show();
+$('.dropdown-menu').hide();
 
 // But in React you can...
-var Example = React.createClass({
+var Dropdown = React.createClass({
   render() {
     return (
       <div className="dropdown">
@@ -269,9 +234,12 @@ var Example = React.createClass({
 });
 ```
 ---
+class: title
 # Resources
 ---
 [React's basic tutorial](https://facebook.github.io/react/docs/tutorial.html)
+---
+A nice [series of articles](https://medium.com/react-tutorials) on Medium
 ---
 [React + Webpack Yeoman generator](https://github.com/newtriks/generator-react-webpack)
 ---
