@@ -48,7 +48,7 @@ class: title
 
 ## 1. Components
 ---
-Components are like widgets or modules: the are the building blocks of a UI. They make it easier to use stuff.
+Components are like widgets or modules: they are the building blocks of a UI. They make it easier to use stuff.
 ---
 React encourages you to think of your UI as being composed of the smallest possible components you can define.
 ---
