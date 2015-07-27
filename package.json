@@ -1,17 +1,36 @@
 {
   "name": "design-prototypes-with-reactjs",
   "version": "0.0.0",
+  "dist": "dist",
+  "mainInput": "main",
+  "mainOutput": "main",
+  "dependencies": {
+    "react-router": "0.13.x",
+    "react": "0.13.x",
+    "normalize.css": "~3.0.3"
+  },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-connect": "~0.2.0",
+    "babel-loader": "^5.0.0",
+    "babel": "^5.0.0",
+    "css-loader": "~0.9.0",
+    "eslint-loader": "^0.11.2",
+    "eslint-plugin-react": "^2.4.0",
+    "eslint": "^0.21.2",
     "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-connect": "~0.8.0",
+    "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-livereload": "~0.1.2",
-    "grunt-open": "~0.2.0",
     "grunt-contrib-watch": "~0.4.3",
+    "grunt-open": "~0.2.3",
     "grunt-template": "~0.2.0",
-    "matchdep": "~0.1.1",
-    "grunt-couchapp": "~0.2.0",
-    "couchapp": "~0.10.0"
+    "grunt-webpack": "~1.0.8",
+    "grunt": "~0.4.5",
+    "load-grunt-tasks": "~0.6.0",
+    "react-hot-loader": "^1.0.7",
+    "style-loader": "~0.8.0",
+    "url-loader": "~0.5.5",
+    "webpack-dev-server": "~1.10.0",
+    "webpack": "~1.10.0"
   }
 }
